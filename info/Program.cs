@@ -9,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 var connection = builder.Configuration.GetConnectionString("appcon");
-builder.Services.AddDbContext<infoDbContext>(options => options.UseSqlServer(connection));
+//builder.Services.AddDbContext<infoDbContext>(options => options.UseSqlServer(connection));
+builder.Services.AddDbContext<infoDbContext>(options => options.UseSqlite(connection));
 
 // specify the lifetime
 // three lifetimes 1- singleton , 2-scoped , 3- transient
@@ -24,7 +25,7 @@ builder.Services.AddDbContext<infoDbContext>(options => options.UseSqlServer(con
 // if we dont have unit of work , for all the new repository we added , we would
 // have to inject them manually
 // unit of work is sufficient for all the repository we will be adding in future
-builder.Services.AddScoped<IUnitofWork,UnitofWork>();
+builder.Services.AddScoped<IUnitofWork, UnitofWork>();
 
 
 
