@@ -38,6 +38,6 @@ namespace info.Models
         public DateTime Expiry { get; set; }
 
         public string medicinetype { get; set; }
-        public object DisplayOrder { get; internal set; }
+        public int DisplayOrder { get; internal set; }
     }
 }
