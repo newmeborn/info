@@ -80,7 +80,8 @@ namespace info.Controllers
                 return NotFound();
             }
 
-            var infomed = _unitofWork.Infomed.GetFirstOrDefault(m => m.Name == "id");
+            //var infomed = _unitofWork.Infomed.GetFirstOrDefault(m => m.Name == "id");
+            var infomed = _unitofWork.Infomed.GetFirstOrDefault(m => m.Id == id); // This is correct
             if (infomed == null)
             {
                 return NotFound();
